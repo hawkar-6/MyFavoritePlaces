@@ -1,0 +1,42 @@
+[
+    {
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\9.0-milestone-1\\com.example.favoriteplaces.app-debug-35:\\layout_item_place.xml.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\9.0-milestone-1\\com.example.favoriteplaces.app-main-37:\\layout\\item_place.xml"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\9.0-milestone-1\\com.example.favoriteplaces.app-debug-35:\\layout_activity_place_detail.xml.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\9.0-milestone-1\\com.example.favoriteplaces.app-main-37:\\layout\\activity_place_detail.xml"
+    },
+    {
+        "merged": "com.example.favoriteplaces.app-debug-35:/drawable_ic_launcher.xml.flat",
+        "source": "com.example.favoriteplaces.app-main-37:/drawable/ic_launcher.xml"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\9.0-milestone-1\\com.example.favoriteplaces.app-debug-35:\\layout_activity_add_place.xml.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\9.0-milestone-1\\com.example.favoriteplaces.app-main-37:\\layout\\activity_add_place.xml"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\9.0-milestone-1\\com.example.favoriteplaces.app-debug-35:\\menu_menu_detail.xml.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\9.0-milestone-1\\com.example.favoriteplaces.app-main-37:\\menu\\menu_detail.xml"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\9.0-milestone-1\\com.example.favoriteplaces.app-debug-35:\\drawable_gradient_overlay.xml.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\9.0-milestone-1\\com.example.favoriteplaces.app-main-37:\\drawable\\gradient_overlay.xml"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\9.0-milestone-1\\com.example.favoriteplaces.app-debug-35:\\layout_activity_map_picker.xml.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\9.0-milestone-1\\com.example.favoriteplaces.app-main-37:\\layout\\activity_map_picker.xml"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\9.0-milestone-1\\com.example.favoriteplaces.app-debug-35:\\drawable_bg_image_placeholder.xml.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\9.0-milestone-1\\com.example.favoriteplaces.app-main-37:\\drawable\\bg_image_placeholder.xml"
+    },
+    {
+        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\9.0-milestone-1\\com.example.favoriteplaces.app-debug-35:\\layout_activity_main.xml.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\daemon\\9.0-milestone-1\\com.example.favoriteplaces.app-main-37:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "com.example.favoriteplaces.app-debug-35:/drawable_ic_launcher_round.xml.flat",
+        "source": "com.example.favoriteplaces.app-main-37:/drawable/ic_launcher_round.xml"
+    }
+]

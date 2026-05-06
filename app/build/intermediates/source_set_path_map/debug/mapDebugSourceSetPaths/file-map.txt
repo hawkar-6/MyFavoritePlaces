@@ -1,0 +1,38 @@
+com.example.favoriteplaces.app-transition-1.5.0-0 C:\Users\Admin\.gradle\caches\9.0-milestone-1\transforms\0b1ee4c79f9d05c6f163472209207f73\transformed\transition-1.5.0\res
+com.example.favoriteplaces.app-lifecycle-livedata-2.6.2-1 C:\Users\Admin\.gradle\caches\9.0-milestone-1\transforms\1624c9edc612d57f9282b29e6810324e\transformed\lifecycle-livedata-2.6.2\res
+com.example.favoriteplaces.app-jetified-customview-poolingcontainer-1.0.0-2 C:\Users\Admin\.gradle\caches\9.0-milestone-1\transforms\20765af7757aa19d2ee147f9b4ec500d\transformed\jetified-customview-poolingcontainer-1.0.0\res
+com.example.favoriteplaces.app-jetified-emoji2-1.3.0-3 C:\Users\Admin\.gradle\caches\9.0-milestone-1\transforms\20b7436b3b93feaffc9107ccf7c859f5\transformed\jetified-emoji2-1.3.0\res
+com.example.favoriteplaces.app-lifecycle-runtime-2.6.2-4 C:\Users\Admin\.gradle\caches\9.0-milestone-1\transforms\327d8416213072980f94e230135c7660\transformed\lifecycle-runtime-2.6.2\res
+com.example.favoriteplaces.app-jetified-activity-1.9.0-5 C:\Users\Admin\.gradle\caches\9.0-milestone-1\transforms\37ab6eab7a83a6bc47629947b12e3f2e\transformed\jetified-activity-1.9.0\res
+com.example.favoriteplaces.app-jetified-core-ktx-1.13.1-6 C:\Users\Admin\.gradle\caches\9.0-milestone-1\transforms\3c01717855039cec09e223560ae42224\transformed\jetified-core-ktx-1.13.1\res
+com.example.favoriteplaces.app-jetified-play-services-maps-19.0.0-7 C:\Users\Admin\.gradle\caches\9.0-milestone-1\transforms\45789ca99bd6bd546351f1cf01fa7abe\transformed\jetified-play-services-maps-19.0.0\res
+com.example.favoriteplaces.app-coordinatorlayout-1.1.0-8 C:\Users\Admin\.gradle\caches\9.0-milestone-1\transforms\470a2e838569e282314e87945ab273d6\transformed\coordinatorlayout-1.1.0\res
+com.example.favoriteplaces.app-jetified-savedstate-1.2.1-9 C:\Users\Admin\.gradle\caches\9.0-milestone-1\transforms\4d92b8fd77ed2ac998c92afa81670af3\transformed\jetified-savedstate-1.2.1\res
+com.example.favoriteplaces.app-fragment-1.5.4-10 C:\Users\Admin\.gradle\caches\9.0-milestone-1\transforms\4fecd0faac5bc75a7c2fc70e48aafa34\transformed\fragment-1.5.4\res
+com.example.favoriteplaces.app-material-1.12.0-11 C:\Users\Admin\.gradle\caches\9.0-milestone-1\transforms\503386e852907e5fd990e2fb2729df78\transformed\material-1.12.0\res
+com.example.favoriteplaces.app-jetified-lifecycle-viewmodel-savedstate-2.6.2-12 C:\Users\Admin\.gradle\caches\9.0-milestone-1\transforms\5132d96f57b945b657401ff738f86730\transformed\jetified-lifecycle-viewmodel-savedstate-2.6.2\res
+com.example.favoriteplaces.app-jetified-emoji2-views-helper-1.3.0-13 C:\Users\Admin\.gradle\caches\9.0-milestone-1\transforms\528653b03da76900dac50ee754e17fa9\transformed\jetified-emoji2-views-helper-1.3.0\res
+com.example.favoriteplaces.app-lifecycle-livedata-core-2.6.2-14 C:\Users\Admin\.gradle\caches\9.0-milestone-1\transforms\5a42fe35e8a7a9f1bcaa2d3ba342c44e\transformed\lifecycle-livedata-core-2.6.2\res
+com.example.favoriteplaces.app-appcompat-1.7.0-15 C:\Users\Admin\.gradle\caches\9.0-milestone-1\transforms\5ae4544981acee0ed30b736351aaed4b\transformed\appcompat-1.7.0\res
+com.example.favoriteplaces.app-lifecycle-viewmodel-2.6.2-16 C:\Users\Admin\.gradle\caches\9.0-milestone-1\transforms\5dcddafc7e8e7ac6716708df2c9cbd3a\transformed\lifecycle-viewmodel-2.6.2\res
+com.example.favoriteplaces.app-core-1.13.1-17 C:\Users\Admin\.gradle\caches\9.0-milestone-1\transforms\66b82a878664be8daee37c5386dc2dc1\transformed\core-1.13.1\res
+com.example.favoriteplaces.app-jetified-play-services-basement-18.4.0-18 C:\Users\Admin\.gradle\caches\9.0-milestone-1\transforms\7464d8dcf1d88bb4b6a1ced68d9acb8c\transformed\jetified-play-services-basement-18.4.0\res
+com.example.favoriteplaces.app-constraintlayout-2.1.4-19 C:\Users\Admin\.gradle\caches\9.0-milestone-1\transforms\7e970988c32e5136144f59015bcf81be\transformed\constraintlayout-2.1.4\res
+com.example.favoriteplaces.app-jetified-play-services-base-18.5.0-20 C:\Users\Admin\.gradle\caches\9.0-milestone-1\transforms\8007a5527c66b2d8d65ebf9df97a9237\transformed\jetified-play-services-base-18.5.0\res
+com.example.favoriteplaces.app-jetified-startup-runtime-1.1.1-21 C:\Users\Admin\.gradle\caches\9.0-milestone-1\transforms\81992cffd02b94805ab14214c00cb3ab\transformed\jetified-startup-runtime-1.1.1\res
+com.example.favoriteplaces.app-cardview-1.0.0-22 C:\Users\Admin\.gradle\caches\9.0-milestone-1\transforms\81bcff51dcfc259de56b57f288c460fe\transformed\cardview-1.0.0\res
+com.example.favoriteplaces.app-drawerlayout-1.1.1-23 C:\Users\Admin\.gradle\caches\9.0-milestone-1\transforms\a67819470f3e718274b878114e0711be\transformed\drawerlayout-1.1.1\res
+com.example.favoriteplaces.app-jetified-profileinstaller-1.3.1-24 C:\Users\Admin\.gradle\caches\9.0-milestone-1\transforms\b73965593be04d33cd3b674fa3216756\transformed\jetified-profileinstaller-1.3.1\res
+com.example.favoriteplaces.app-recyclerview-1.3.2-25 C:\Users\Admin\.gradle\caches\9.0-milestone-1\transforms\be64231894a098300cf88dbcd3d7c726\transformed\recyclerview-1.3.2\res
+com.example.favoriteplaces.app-jetified-viewpager2-1.1.0-beta02-26 C:\Users\Admin\.gradle\caches\9.0-milestone-1\transforms\c709ce61c2a5497311eab7b6c0fbbe01\transformed\jetified-viewpager2-1.1.0-beta02\res
+com.example.favoriteplaces.app-jetified-lifecycle-process-2.6.2-27 C:\Users\Admin\.gradle\caches\9.0-milestone-1\transforms\de92c18d29c2959f968edae0b43a4954\transformed\jetified-lifecycle-process-2.6.2\res
+com.example.favoriteplaces.app-core-runtime-2.2.0-28 C:\Users\Admin\.gradle\caches\9.0-milestone-1\transforms\e0512eef77a7ec6180743bc4b79214f6\transformed\core-runtime-2.2.0\res
+com.example.favoriteplaces.app-jetified-appcompat-resources-1.7.0-29 C:\Users\Admin\.gradle\caches\9.0-milestone-1\transforms\f6787672cc7c2284d2a0bc7d66082593\transformed\jetified-appcompat-resources-1.7.0\res
+com.example.favoriteplaces.app-jetified-annotation-experimental-1.4.0-30 C:\Users\Admin\.gradle\caches\9.0-milestone-1\transforms\f965692f658f03b2bfe59a7912458568\transformed\jetified-annotation-experimental-1.4.0\res
+com.example.favoriteplaces.app-pngs-31 C:\Users\Admin\OneDrive\Desktop\Programing language\FavoritePlacesSaver\app\build\generated\res\pngs\debug
+com.example.favoriteplaces.app-resValues-32 C:\Users\Admin\OneDrive\Desktop\Programing language\FavoritePlacesSaver\app\build\generated\res\resValues\debug
+com.example.favoriteplaces.app-packageDebugResources-33 C:\Users\Admin\OneDrive\Desktop\Programing language\FavoritePlacesSaver\app\build\intermediates\incremental\debug\packageDebugResources\merged.dir
+com.example.favoriteplaces.app-packageDebugResources-34 C:\Users\Admin\OneDrive\Desktop\Programing language\FavoritePlacesSaver\app\build\intermediates\incremental\debug\packageDebugResources\stripped.dir
+com.example.favoriteplaces.app-debug-35 C:\Users\Admin\OneDrive\Desktop\Programing language\FavoritePlacesSaver\app\build\intermediates\merged_res\debug\mergeDebugResources
+com.example.favoriteplaces.app-debug-36 C:\Users\Admin\OneDrive\Desktop\Programing language\FavoritePlacesSaver\app\src\debug\res
+com.example.favoriteplaces.app-main-37 C:\Users\Admin\OneDrive\Desktop\Programing language\FavoritePlacesSaver\app\src\main\res
