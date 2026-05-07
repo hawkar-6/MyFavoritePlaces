@@ -1,6 +1,7 @@
 package com.example.favoriteplaces.activities;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -31,12 +32,29 @@ public class ProfileActivity extends AppCompatActivity {
         int total = dbHelper.getAllPlaces() != null ? dbHelper.getAllPlaces().size() : 0;
         binding.tvTotalPlaces.setText(String.valueOf(total));
 
+        SharedPreferences prefs = getSharedPreferences(LoginActivity.PREFS_NAME, MODE_PRIVATE);
+        String name = prefs.getString(LoginActivity.KEY_NAME, "Hawkar");
+        String email = prefs.getString(LoginActivity.KEY_EMAIL, "hawkar@example.com");
+        binding.tvName.setText(name);
+        binding.tvEmail.setText(email);
+
         binding.btnSettings.setOnClickListener(v ->
                 Toast.makeText(this, "Settings (coming soon)", Toast.LENGTH_SHORT).show());
-        binding.btnLogout.setOnClickListener(v ->
-                Toast.makeText(this, "Logout (coming soon)", Toast.LENGTH_SHORT).show());
+        binding.btnLogout.setOnClickListener(v -> logout());
 
         setupBottomNav();
+    }
+
+    private void logout() {
+        getSharedPreferences(LoginActivity.PREFS_NAME, MODE_PRIVATE)
+                .edit()
+                .clear()
+                .apply();
+
+        Intent intent = new Intent(this, LoginActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
+        finish();
     }
 
     private void setupBottomNav() {
