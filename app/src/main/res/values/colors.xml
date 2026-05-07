@@ -4,6 +4,12 @@
     <color name="colorPrimaryDark">#1565C0</color>
     <color name="colorAccent">#FF6F00</color>
 
+    <!-- Modern palette -->
+    <color name="brandBlue">#1A237E</color>
+    <color name="brandBlueDark">#0D135C</color>
+    <color name="surfaceWhite">#FFFFFF</color>
+    <color name="surfaceLight">#F5F5F5</color>
+
     <color name="textPrimary">#212121</color>
     <color name="textSecondary">#757575</color>
     <color name="backgroundColor">#F5F5F5</color>

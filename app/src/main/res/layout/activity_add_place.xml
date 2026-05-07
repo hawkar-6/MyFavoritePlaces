@@ -1,102 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true"
-    android:background="@color/backgroundColor">
+    android:background="@color/surfaceLight">
 
+    <!-- Full-screen map background -->
+    <fragment
+        android:id="@+id/add_place_map_fragment"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!-- Transparent top bar -->
     <LinearLayout
+        android:id="@+id/topBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp">
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingTop="14dp"
+        android:paddingBottom="14dp"
+        android:gravity="center_vertical"
+        android:background="@android:color/transparent">
 
-        <!-- Header image picker area -->
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            app:cardCornerRadius="12dp"
-            app:cardElevation="4dp"
-            android:layout_marginBottom="16dp">
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:background="@android:color/transparent"
+            android:contentDescription="Back"
+            android:padding="10dp"
+            android:src="@drawable/ic_arrow_back_24" />
 
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/tvTopTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="FAVORITE PLACE"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:letterSpacing="0.08"
+            android:textColor="@android:color/white" />
+    </LinearLayout>
 
-                <ImageView
-                    android:id="@+id/ivSelectedImage"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:scaleType="centerCrop"
-                    android:background="@color/imagePlaceholderBg"
-                    android:contentDescription="Selected image" />
+    <!-- Bottom Navigation -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@color/surfaceWhite"
+        app:menu="@menu/menu_bottom_nav"
+        app:labelVisibilityMode="labeled" />
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:orientation="vertical"
-                    android:gravity="center">
+    <!-- Bottom card -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/bottomCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="72dp"
+        app:cardBackgroundColor="@color/surfaceWhite"
+        app:cardCornerRadius="28dp"
+        app:cardElevation="10dp">
 
-                    <ImageView
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:src="@android:drawable/ic_menu_camera"
-                        android:alpha="0.5" />
-
-                    <TextView
-                        android:id="@+id/tvImageHint"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
-                        android:text="Tap below to pick an image"
-                        android:textSize="13sp"
-                        android:textColor="@color/textSecondary" />
-
-                </LinearLayout>
-
-            </FrameLayout>
-
-        </com.google.android.material.card.MaterialCardView>
-
-        <!-- Pick image button -->
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnPickImage"
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="📷  Choose from Gallery"
-            android:textAllCaps="false"
-            android:layout_marginBottom="20dp" />
+            android:orientation="vertical">
 
-        <!-- Title input -->
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tilTitle"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Place Title *"
-            android:layout_marginBottom="20dp"
-            app:startIconDrawable="@android:drawable/ic_menu_edit">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etPlaceTitle"
+            <!-- Header gradient -->
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textCapSentences"
-                android:imeOptions="actionDone" />
+                android:background="@drawable/bg_location_header_gradient"
+                android:padding="16dp"
+                android:orientation="vertical">
 
-        </com.google.android.material.textfield.TextInputLayout>
+                <TextView
+                    android:id="@+id/tvLocationPicked"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Location Picked"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:textColor="@android:color/white" />
 
-        <!-- Location card -->
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:cardCornerRadius="12dp"
-            app:cardElevation="2dp"
-            android:layout_marginBottom="16dp">
+                <TextView
+                    android:id="@+id/tvLatLng"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="Tap the map to pick a location"
+                    android:textSize="13sp"
+                    android:textColor="#DDE3FF" />
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -104,56 +106,82 @@
                 android:orientation="vertical"
                 android:padding="16dp">
 
-                <TextView
-                    android:layout_width="wrap_content"
+                <!-- Title input -->
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilTitle"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="📍 Location"
-                    android:textSize="15sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/textPrimary"
-                    android:layout_marginBottom="8dp" />
+                    android:hint="PLACE TITLE"
+                    app:boxCornerRadiusTopStart="16dp"
+                    app:boxCornerRadiusTopEnd="16dp"
+                    app:boxCornerRadiusBottomStart="16dp"
+                    app:boxCornerRadiusBottomEnd="16dp">
 
-                <TextView
-                    android:id="@+id/tvLocationHint"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="No location selected"
-                    android:textSize="13sp"
-                    android:textColor="@color/textSecondary"
-                    android:layout_marginBottom="4dp" />
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etPlaceTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textCapSentences"
+                        android:imeOptions="actionDone" />
+                </com.google.android.material.textfield.TextInputLayout>
 
-                <TextView
-                    android:id="@+id/tvSelectedLocation"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="12sp"
-                    android:textColor="@color/colorPrimary"
-                    android:text="" />
+                <!-- Add photo tile -->
+                <LinearLayout
+                    android:id="@+id/btnAddPhoto"
+                    android:layout_width="match_parent"
+                    android:layout_height="110dp"
+                    android:layout_marginTop="14dp"
+                    android:background="@drawable/bg_dashed_tile"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:padding="14dp"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <ImageView
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:src="@drawable/ic_camera_24"
+                        android:contentDescription="Camera" />
+
+                    <TextView
+                        android:id="@+id/tvImageHint"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:text="ADD PHOTO"
+                        android:textStyle="bold"
+                        android:textSize="13sp"
+                        android:letterSpacing="0.08"
+                        android:textColor="@color/brandBlue" />
+                </LinearLayout>
+
+                <!-- Preview image (hidden until selected) -->
+                <ImageView
+                    android:id="@+id/ivSelectedImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="140dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@color/imagePlaceholderBg"
+                    android:scaleType="centerCrop"
+                    android:visibility="gone"
+                    android:contentDescription="Selected image" />
 
             </LinearLayout>
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
 
-        </com.google.android.material.card.MaterialCardView>
+    <!-- FAB half-inside the card -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabAddPlace"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="138dp"
+        android:contentDescription="Add"
+        app:backgroundTint="@color/brandBlue"
+        app:srcCompat="@drawable/ic_add_24"
+        app:tint="@android:color/white" />
 
-        <!-- Pick location button -->
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnPickLocation"
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="🗺️  Pick on Map"
-            android:textAllCaps="false"
-            android:layout_marginBottom="28dp" />
-
-        <!-- Save button -->
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnSavePlace"
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:text="SAVE PLACE"
-            android:textSize="16sp"
-            android:layout_marginBottom="16dp"
-            app:cornerRadius="12dp" />
-
-    </LinearLayout>
-
-</ScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
