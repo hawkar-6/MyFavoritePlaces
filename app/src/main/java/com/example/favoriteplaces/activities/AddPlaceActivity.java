@@ -38,6 +38,12 @@ public class AddPlaceActivity extends AppCompatActivity implements OnMapReadyCal
     public static final String EXTRA_LATITUDE  = "extra_latitude";
     public static final String EXTRA_LONGITUDE = "extra_longitude";
     public static final String EXTRA_ADDRESS   = "extra_address";
+    public static final String EXTRA_EDIT_PLACE_ID = "extra_edit_place_id";
+    public static final String EXTRA_EDIT_TITLE = "extra_edit_title";
+    public static final String EXTRA_EDIT_IMAGE_URI = "extra_edit_image_uri";
+    public static final String EXTRA_EDIT_LATITUDE = "extra_edit_latitude";
+    public static final String EXTRA_EDIT_LONGITUDE = "extra_edit_longitude";
+    public static final String EXTRA_EDIT_ADDRESS = "extra_edit_address";
 
     private ActivityAddPlaceBinding binding;
     private DatabaseHelper dbHelper;
@@ -50,6 +56,9 @@ public class AddPlaceActivity extends AppCompatActivity implements OnMapReadyCal
 
     private GoogleMap googleMap;
     private FusedLocationProviderClient fusedLocationClient;
+
+    private boolean isEditMode = false;
+    private int editingPlaceId = -1;
 
     // ─── Launchers ───────────────────────────────────────────────────────────────
 
@@ -106,8 +115,41 @@ public class AddPlaceActivity extends AppCompatActivity implements OnMapReadyCal
         binding.fabAddPlace.setOnClickListener(v -> savePlace());
         binding.btnSavePlace.setOnClickListener(v -> savePlace());
 
+        readEditModeExtras();
         setupBottomNav();
         setupMap();
+    }
+
+    private void readEditModeExtras() {
+        Intent intent = getIntent();
+        if (intent == null) return;
+        editingPlaceId = intent.getIntExtra(EXTRA_EDIT_PLACE_ID, -1);
+        if (editingPlaceId == -1) return;
+
+        isEditMode = true;
+        binding.tvTopTitle.setText("EDIT PLACE");
+        binding.btnSavePlace.setText("SAVE CHANGES");
+
+        String title = intent.getStringExtra(EXTRA_EDIT_TITLE);
+        if (title != null) binding.etPlaceTitle.setText(title);
+
+        String imageUri = intent.getStringExtra(EXTRA_EDIT_IMAGE_URI);
+        if (imageUri != null && !imageUri.isEmpty()) {
+            selectedImageUri = Uri.parse(imageUri);
+            binding.ivSelectedImage.setImageURI(selectedImageUri);
+            binding.ivSelectedImage.setVisibility(android.view.View.VISIBLE);
+            binding.tvImageHint.setText("PHOTO ADDED");
+        }
+
+        selectedLat = intent.getDoubleExtra(EXTRA_EDIT_LATITUDE, 0.0);
+        selectedLng = intent.getDoubleExtra(EXTRA_EDIT_LONGITUDE, 0.0);
+        selectedAddress = intent.getStringExtra(EXTRA_EDIT_ADDRESS);
+        if (selectedAddress == null) selectedAddress = "";
+
+        if (selectedLat != 0.0 || selectedLng != 0.0) {
+            locationPicked = true;
+            binding.tvLatLng.setText(String.format(Locale.getDefault(), "%.5f, %.5f", selectedLat, selectedLng));
+        }
     }
 
     @Override
@@ -163,6 +205,13 @@ public class AddPlaceActivity extends AppCompatActivity implements OnMapReadyCal
 
             resolveAddress(latLng);
         });
+
+        if (locationPicked) {
+            LatLng existing = new LatLng(selectedLat, selectedLng);
+            googleMap.clear();
+            googleMap.addMarker(new MarkerOptions().position(existing).title("Selected Location"));
+            googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(existing, 15f));
+        }
 
         checkLocationPermission();
     }
@@ -273,14 +322,27 @@ public class AddPlaceActivity extends AppCompatActivity implements OnMapReadyCal
 
         String imageUriStr = selectedImageUri != null ? selectedImageUri.toString() : "";
 
-        PlaceModel place = new PlaceModel(title, imageUriStr, selectedLat, selectedLng, selectedAddress);
-        long id = dbHelper.addPlace(place);
-
-        if (id != -1) {
-            setResult(RESULT_OK);
-            finish();
+        if (isEditMode) {
+            PlaceModel updated = new PlaceModel(editingPlaceId, title, imageUriStr, selectedLat, selectedLng, selectedAddress);
+            int rows = dbHelper.updatePlace(updated);
+            if (rows > 0) {
+                Intent result = new Intent();
+                result.putExtra(PlaceDetailActivity.EXTRA_PLACE_ID, editingPlaceId);
+                setResult(RESULT_OK, result);
+                finish();
+            } else {
+                Toast.makeText(this, "Error updating place. Please try again.", Toast.LENGTH_SHORT).show();
+            }
         } else {
-            Toast.makeText(this, "Error saving place. Please try again.", Toast.LENGTH_SHORT).show();
+            PlaceModel place = new PlaceModel(title, imageUriStr, selectedLat, selectedLng, selectedAddress);
+            long id = dbHelper.addPlace(place);
+
+            if (id != -1) {
+                setResult(RESULT_OK);
+                finish();
+            } else {
+                Toast.makeText(this, "Error saving place. Please try again.", Toast.LENGTH_SHORT).show();
+            }
         }
     }
 }

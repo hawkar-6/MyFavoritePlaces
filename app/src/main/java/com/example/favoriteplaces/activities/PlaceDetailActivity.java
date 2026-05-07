@@ -7,6 +7,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -33,6 +35,19 @@ public class PlaceDetailActivity extends AppCompatActivity implements OnMapReady
     private DatabaseHelper dbHelper;
     private PlaceModel place;
     private GoogleMap googleMap;
+
+    private final ActivityResultLauncher<Intent> editPlaceLauncher =
+            registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
+                if (result.getResultCode() == RESULT_OK) {
+                    // Reload place from DB and refresh UI
+                    PlaceModel updated = dbHelper.getPlaceById(place.getId());
+                    if (updated != null) {
+                        place = updated;
+                        populateUi();
+                        refreshMapMarker();
+                    }
+                }
+            });
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,6 +96,9 @@ public class PlaceDetailActivity extends AppCompatActivity implements OnMapReady
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == R.id.action_delete) {
             confirmDelete();
+            return true;
+        } else if (item.getItemId() == R.id.action_edit) {
+            openEditMode();
             return true;
         } else if (item.getItemId() == R.id.action_open_maps) {
             openInGoogleMaps();
@@ -131,21 +149,35 @@ public class PlaceDetailActivity extends AppCompatActivity implements OnMapReady
     @Override
     public void onMapReady(@NonNull GoogleMap map) {
         this.googleMap = map;
-
-        LatLng placeLatLng = new LatLng(place.getLatitude(), place.getLongitude());
-
-        googleMap.addMarker(new MarkerOptions()
-                .position(placeLatLng)
-                .title(place.getTitle())
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
-
-        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(placeLatLng, 15f));
+        refreshMapMarker();
         googleMap.getUiSettings().setZoomControlsEnabled(true);
         googleMap.getUiSettings().setScrollGesturesEnabled(true);
         googleMap.getUiSettings().setMapToolbarEnabled(true);
     }
 
+    private void refreshMapMarker() {
+        if (googleMap == null || place == null) return;
+        googleMap.clear();
+        LatLng placeLatLng = new LatLng(place.getLatitude(), place.getLongitude());
+        googleMap.addMarker(new MarkerOptions()
+                .position(placeLatLng)
+                .title(place.getTitle())
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
+        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(placeLatLng, 15f));
+    }
+
     // ─── Actions ─────────────────────────────────────────────────────────────────
+
+    private void openEditMode() {
+        Intent intent = new Intent(this, AddPlaceActivity.class);
+        intent.putExtra(AddPlaceActivity.EXTRA_EDIT_PLACE_ID, place.getId());
+        intent.putExtra(AddPlaceActivity.EXTRA_EDIT_TITLE, place.getTitle());
+        intent.putExtra(AddPlaceActivity.EXTRA_EDIT_IMAGE_URI, place.getImageUri());
+        intent.putExtra(AddPlaceActivity.EXTRA_EDIT_LATITUDE, place.getLatitude());
+        intent.putExtra(AddPlaceActivity.EXTRA_EDIT_LONGITUDE, place.getLongitude());
+        intent.putExtra(AddPlaceActivity.EXTRA_EDIT_ADDRESS, place.getAddress());
+        editPlaceLauncher.launch(intent);
+    }
 
     private void confirmDelete() {
         new AlertDialog.Builder(this)

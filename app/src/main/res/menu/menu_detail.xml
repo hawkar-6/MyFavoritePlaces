@@ -9,6 +9,12 @@
         app:showAsAction="ifRoom" />
 
     <item
+        android:id="@+id/action_edit"
+        android:title="Edit Place"
+        android:icon="@drawable/ic_edit_24"
+        app:showAsAction="ifRoom" />
+
+    <item
         android:id="@+id/action_delete"
         android:title="Delete Place"
         android:icon="@android:drawable/ic_menu_delete"
