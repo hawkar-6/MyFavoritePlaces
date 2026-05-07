@@ -104,6 +104,7 @@ public class AddPlaceActivity extends AppCompatActivity implements OnMapReadyCal
         binding.btnBack.setOnClickListener(v -> finish());
         binding.btnAddPhoto.setOnClickListener(v -> checkGalleryPermissionAndOpen());
         binding.fabAddPlace.setOnClickListener(v -> savePlace());
+        binding.btnSavePlace.setOnClickListener(v -> savePlace());
 
         setupBottomNav();
         setupMap();
@@ -258,12 +259,13 @@ public class AddPlaceActivity extends AppCompatActivity implements OnMapReadyCal
 
         if (title.isEmpty()) {
             binding.tilTitle.setError("Please enter a title");
+            Toast.makeText(this, "Please enter a place title", Toast.LENGTH_SHORT).show();
             return;
         }
         binding.tilTitle.setError(null);
 
         if (!locationPicked) {
-            Toast.makeText(this, "Tap the map to pick a location", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Please pick a location on the map", Toast.LENGTH_SHORT).show();
             return;
         }
 

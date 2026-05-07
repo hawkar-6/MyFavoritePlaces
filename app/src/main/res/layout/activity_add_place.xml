@@ -168,6 +168,18 @@
                     android:visibility="gone"
                     android:contentDescription="Selected image" />
 
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnSavePlace"
+                    android:layout_width="match_parent"
+                    android:layout_height="54dp"
+                    android:layout_marginTop="14dp"
+                    android:text="SAVE PLACE"
+                    android:textAllCaps="false"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/white"
+                    app:backgroundTint="@color/brandBlue"
+                    app:cornerRadius="18dp" />
+
             </LinearLayout>
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
