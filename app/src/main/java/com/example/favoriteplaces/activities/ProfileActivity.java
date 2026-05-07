@@ -32,17 +32,27 @@ public class ProfileActivity extends AppCompatActivity {
         int total = dbHelper.getAllPlaces() != null ? dbHelper.getAllPlaces().size() : 0;
         binding.tvTotalPlaces.setText(String.valueOf(total));
 
+        updateProfileHeaderFromPrefs();
+
+        binding.btnSettings.setOnClickListener(v ->
+                startActivity(new Intent(this, SettingsActivity.class)));
+        binding.btnLogout.setOnClickListener(v -> logout());
+
+        setupBottomNav();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        updateProfileHeaderFromPrefs();
+    }
+
+    private void updateProfileHeaderFromPrefs() {
         SharedPreferences prefs = getSharedPreferences(LoginActivity.PREFS_NAME, MODE_PRIVATE);
         String name = prefs.getString(LoginActivity.KEY_NAME, "Hawkar");
         String email = prefs.getString(LoginActivity.KEY_EMAIL, "hawkar@example.com");
         binding.tvName.setText(name);
         binding.tvEmail.setText(email);
-
-        binding.btnSettings.setOnClickListener(v ->
-                Toast.makeText(this, "Settings (coming soon)", Toast.LENGTH_SHORT).show());
-        binding.btnLogout.setOnClickListener(v -> logout());
-
-        setupBottomNav();
     }
 
     private void logout() {

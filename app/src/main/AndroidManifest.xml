@@ -76,6 +76,12 @@
             android:exported="false"
             android:label="Profile" />
 
+        <activity
+            android:name=".activities.SettingsActivity"
+            android:exported="false"
+            android:label="Settings"
+            android:windowSoftInputMode="adjustResize" />
+
     </application>
 
 </manifest>
