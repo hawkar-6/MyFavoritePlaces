@@ -18,6 +18,7 @@ import com.example.favoriteplaces.adapters.PlacesAdapter;
 import com.example.favoriteplaces.databinding.ActivityMainBinding;
 import com.example.favoriteplaces.helpers.DatabaseHelper;
 import com.example.favoriteplaces.models.PlaceModel;
+import com.google.android.material.navigation.NavigationBarView;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.util.List;
@@ -51,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
 
         dbHelper = DatabaseHelper.getInstance(this);
         setupRecyclerView();
+        setupBottomNav();
         setupFab();
         refreshPlaceList();
     }
@@ -116,6 +118,26 @@ public class MainActivity extends AppCompatActivity {
         binding.fabAddPlace.setOnClickListener(v -> {
             Intent intent = new Intent(this, AddPlaceActivity.class);
             addPlaceLauncher.launch(intent);
+        });
+    }
+
+    private void setupBottomNav() {
+        binding.bottomNav.setSelectedItemId(com.example.favoriteplaces.R.id.nav_home);
+        binding.bottomNav.setOnItemSelectedListener((NavigationBarView.OnItemSelectedListener) item -> {
+            int id = item.getItemId();
+            if (id == com.example.favoriteplaces.R.id.nav_home) {
+                Toast.makeText(this, "Home", Toast.LENGTH_SHORT).show();
+                return true;
+            }
+            if (id == com.example.favoriteplaces.R.id.nav_map) {
+                Toast.makeText(this, "Map", Toast.LENGTH_SHORT).show();
+                return true;
+            }
+            if (id == com.example.favoriteplaces.R.id.nav_profile) {
+                Toast.makeText(this, "Profile", Toast.LENGTH_SHORT).show();
+                return true;
+            }
+            return false;
         });
     }
 
