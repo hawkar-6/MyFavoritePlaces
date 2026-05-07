@@ -58,18 +58,9 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/AppTheme" >
-
-        <!--
-            ╔══════════════════════════════════════════════════════════╗
-            ║  IMPORTANT: Replace YOUR_API_KEY_HERE with your actual   ║
-            ║  Google Maps API key from Google Cloud Console.          ║
-            ║  Enable "Maps SDK for Android" in your project.          ║
-            ╚══════════════════════════════════════════════════════════╝
-        -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="YOUR_API_KEY_HERE" />
-
+            android:value="AIzaSyAaPRlM7N14_TOuMjovmc0Am1M-CJGunPQ" />
         <!-- ───── Activities ─────────────────────────────────────── -->
 
         <activity
