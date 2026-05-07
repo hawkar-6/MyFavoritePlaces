@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.favoriteplaces">
 
+
+
     <!-- ───── Permissions ───────────────────────────────────────────────────── -->
 
     <!-- Location -->
@@ -32,16 +34,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <!--
-            ╔══════════════════════════════════════════════════════════╗
-            ║  IMPORTANT: Replace YOUR_API_KEY_HERE with your actual   ║
-            ║  Google Maps API key from Google Cloud Console.          ║
-            ║  Enable "Maps SDK for Android" in your project.          ║
-            ╚══════════════════════════════════════════════════════════╝
-        -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="YOUR_API_KEY_HERE" />
+            android:value="${MAPS_API_KEY}" />
 
         <!-- ───── Activities ─────────────────────────────────────── -->
 

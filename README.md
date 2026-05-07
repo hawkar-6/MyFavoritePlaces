@@ -61,11 +61,13 @@ Open the `FavoritePlacesSaver` folder in **Android Studio Hedgehog** (or later).
 5. (Recommended) Restrict the key to your app's package name + SHA-1
 
 ### 3. Add the API key
-Open `app/src/main/AndroidManifest.xml` and replace:
-```xml
-android:value="YOUR_API_KEY_HERE"
+Add your key to `local.properties` (this file is not committed):
+
+```properties
+MAPS_API_KEY=YOUR_REAL_KEY_HERE
 ```
-with your actual key.
+
+The manifest reads it via a Gradle `manifestPlaceholders` variable (`${MAPS_API_KEY}`).
 
 ### 4. Build & run
 Sync Gradle → Run on a device or emulator with **Google Play Services** installed.

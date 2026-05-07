@@ -3,6 +3,8 @@ package com.example.favoriteplaces.activities;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager.NameNotFoundException;
 import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
@@ -53,6 +55,12 @@ public class MapPickerActivity extends AppCompatActivity implements OnMapReadyCa
         super.onCreate(savedInstanceState);
         binding = ActivityMapPickerBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        if (!isMapsApiKeyConfigured()) {
+            Toast.makeText(this, "Google Maps API key is missing. Add MAPS_API_KEY to local.properties.", Toast.LENGTH_LONG).show();
+            finish();
+            return;
+        }
 
         if (getSupportActionBar() != null) {
             getSupportActionBar().setTitle("Pick a Location");
@@ -194,5 +202,16 @@ public class MapPickerActivity extends AppCompatActivity implements OnMapReadyCa
         resultIntent.putExtra(AddPlaceActivity.EXTRA_ADDRESS,   selectedAddress);
         setResult(RESULT_OK, resultIntent);
         finish();
+    }
+
+    private boolean isMapsApiKeyConfigured() {
+        try {
+            ApplicationInfo ai = getPackageManager().getApplicationInfo(getPackageName(), PackageManager.GET_META_DATA);
+            if (ai.metaData == null) return false;
+            String key = ai.metaData.getString("com.google.android.geo.API_KEY", "");
+            return key != null && !key.trim().isEmpty();
+        } catch (NameNotFoundException e) {
+            return false;
+        }
     }
 }

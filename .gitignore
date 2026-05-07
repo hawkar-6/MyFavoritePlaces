@@ -1,0 +1,16 @@
+.gradle/
+**/build/
+**/.cxx/
+**/*.apk
+**/*.aab
+
+# Local SDK paths / secrets
+local.properties
+
+# IntelliJ / Android Studio
+.idea/
+*.iml
+
+# OS files
+.DS_Store
+Thumbs.db

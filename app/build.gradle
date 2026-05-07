@@ -2,6 +2,8 @@ plugins {
     id 'com.android.application'
 }
 
+import java.util.Properties
+
 android {
     namespace 'com.example.favoriteplaces'
     compileSdk 34
@@ -14,6 +16,17 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        // Load secrets from local.properties (do NOT commit API keys)
+        Properties localProps = new Properties()
+        File localPropsFile = rootProject.file("local.properties")
+        if (localPropsFile.exists()) {
+            localPropsFile.withInputStream { stream -> localProps.load(stream) }
+        }
+        String mapsApiKey = (String) localProps.getProperty("MAPS_API_KEY", "")
+        manifestPlaceholders = [
+                MAPS_API_KEY: mapsApiKey
+        ]
     }
 
     buildTypes {
