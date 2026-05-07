@@ -130,11 +130,13 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
             if (id == com.example.favoriteplaces.R.id.nav_map) {
-                Toast.makeText(this, "Map", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(this, AddPlaceActivity.class));
+                overridePendingTransition(0, 0);
                 return true;
             }
             if (id == com.example.favoriteplaces.R.id.nav_profile) {
-                Toast.makeText(this, "Profile", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(this, ProfileActivity.class));
+                overridePendingTransition(0, 0);
                 return true;
             }
             return false;

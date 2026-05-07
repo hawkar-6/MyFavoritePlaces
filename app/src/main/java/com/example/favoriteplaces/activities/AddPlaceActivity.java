@@ -245,7 +245,9 @@ public class AddPlaceActivity extends AppCompatActivity implements OnMapReadyCal
                 return true;
             }
             if (id == com.example.favoriteplaces.R.id.nav_profile) {
-                Toast.makeText(this, "Profile (coming soon)", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(this, ProfileActivity.class));
+                overridePendingTransition(0, 0);
+                finish();
                 return true;
             }
             return false;

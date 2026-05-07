@@ -67,6 +67,11 @@
             android:exported="false"
             android:label="@string/title_place_detail" />
 
+        <activity
+            android:name=".activities.ProfileActivity"
+            android:exported="false"
+            android:label="Profile" />
+
     </application>
 
 </manifest>
