@@ -98,17 +98,6 @@
         app:itemTextColor="@color/bottom_nav_item_colors"
         app:labelVisibilityMode="labeled" />
 
-    <!-- FAB -->
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabAddPlace"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="16dp"
-        android:layout_marginBottom="88dp"
-        android:contentDescription="Add new place"
-        android:src="@android:drawable/ic_input_add"
-        app:backgroundTint="@color/colorPrimary"
-        app:tint="@android:color/white" />
+
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
