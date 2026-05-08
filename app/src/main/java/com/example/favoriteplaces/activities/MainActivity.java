@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
         dbHelper = DatabaseHelper.getInstance(this);
         setupRecyclerView();
         setupBottomNav();
-        setupFab();
+//        setupFab();
         refreshPlaceList();
     }
 
@@ -114,12 +114,12 @@ public class MainActivity extends AppCompatActivity {
         new ItemTouchHelper(swipeCallback).attachToRecyclerView(binding.rvPlaces);
     }
 
-    private void setupFab() {
-        binding.fabAddPlace.setOnClickListener(v -> {
-            Intent intent = new Intent(this, AddPlaceActivity.class);
-            addPlaceLauncher.launch(intent);
-        });
-    }
+//    private void setupFab() {
+//        binding.fabAddPlace.setOnClickListener(v -> {
+//            Intent intent = new Intent(this, AddPlaceActivity.class);
+//            addPlaceLauncher.launch(intent);
+//        });
+//    }
 
     private void setupBottomNav() {
         binding.bottomNav.setSelectedItemId(com.example.favoriteplaces.R.id.nav_home);
