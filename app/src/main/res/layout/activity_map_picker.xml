@@ -67,6 +67,7 @@
                 android:layout_height="50dp"
                 android:text="Confirm Location"
                 android:textAllCaps="false"
+                app:backgroundTint="@color/brandBlueDark"
                 android:textSize="15sp"
                 app:cornerRadius="10dp" />
 
